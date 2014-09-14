@@ -30,11 +30,23 @@ public class Ball {
 	}
 
 	public void addx(int value) {
+		if ((destRect.right+value)>gameview.breitespielflaeche) {
+			value = gameview.breitespielflaeche - destRect.right;
+		}
+		if ((destRect.left+value)<0) {
+			value = destRect.left*(-1);
+		}
 		destRect.left = destRect.left+value;
 		destRect.right = destRect.left + ballbitmap.getWidth();
 	}
 
 	public void addy(int value) {
+		if ((destRect.bottom+value)>gameview.hoehespielflaeche) {
+			value = gameview.hoehespielflaeche - destRect.bottom;
+		}
+		if ((destRect.top+value)<0) {
+			value = destRect.top*(-1);
+		}
 		destRect.top = destRect.top+value;
 		destRect.bottom = destRect.top + ballbitmap.getHeight();
 	}
