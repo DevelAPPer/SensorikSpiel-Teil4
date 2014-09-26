@@ -8,7 +8,7 @@ import android.graphics.Rect;
 public class Ball {
 	
 	private Bitmap ballbitmap;
-	private Rect destRect,bitmapRect;
+	public Rect destRect,bitmapRect;
 	private GameView gameview;
 	private BallThread ballthread;
 	

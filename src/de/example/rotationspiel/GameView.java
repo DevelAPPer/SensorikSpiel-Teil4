@@ -7,9 +7,10 @@ import android.view.SurfaceView;
 
 public class GameView extends SurfaceView {
 	
-	private Ball ball;
+	public Ball ball;
 	public MainActivity ma;
 	public int hoehespielflaeche,breitespielflaeche;
+	private Monster monster;
 
 	public GameView(MainActivity ma1) {
 		super(ma1);
@@ -18,6 +19,7 @@ public class GameView extends SurfaceView {
 		setZOrderOnTop(true);
 		getHolder().setFormat(PixelFormat.TRANSPARENT);
 		ball = new Ball(getResources(),this);
+		monster = new Monster(getResources(),this);
 		//um onDraw Methode aufzurufen
 		setWillNotDraw(false);
 		//Display ausmessen
@@ -28,6 +30,7 @@ public class GameView extends SurfaceView {
 	@Override
 	protected void onDraw(Canvas canvas) {
 		postInvalidate();
+		monster.drawBitmap(canvas);
 		ball.drawBitmap(canvas);
 		super.onDraw(canvas);
 	}
